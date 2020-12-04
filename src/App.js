@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import Appbar from './components/Appbar/Appbar';
 import MainContent from './containers/MainContent/MainContent';
 import DrawerContext from './context/drawer-context';
 
 import Logs from './containers/Logs/Logs'
+import Login from './containers/Login/Login'
 
 import styles from './App.module.css'
 
@@ -27,12 +28,18 @@ function App() {
         <div className={styles.flex}>
           <BrowserRouter basename={'/'}>
             <Switch>
-              <Appbar />
-              <MainContent>
-                <Route exact path="/logs" component={Logs} />
-                <Route exact path="/statistics" component={Logs} />
+              <Route exact path="/" render={() => <React.Fragment><Redirect to="/login" /> </React.Fragment>} />
+              <Route exact path="/login" component={Login} />
+              <React.Fragment>
+                <Appbar />
+                <MainContent>
+                  <Switch>
+                    <Route exact path="/logs" component={Logs} />
+                    <Route exact path="/statistics" component={Logs} />
                     <Route exact path="/database" component={Logs} />
-              </MainContent>
+                  </Switch>
+                </MainContent>
+              </React.Fragment>
             </Switch>
           </BrowserRouter>
         </div>
