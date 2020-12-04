@@ -1,0 +1,47 @@
+.Button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+}
+.Button img{
+    width: 15px;
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.Button:focus {
+    border: none;
+    outline: none;
+}
+
+.Button:disabled {
+    cursor: not-allowed;
+}
+
+.Yellow {
+    background:linear-gradient(180deg, #FD7F20 0%, rgba(254, 135, 46, 0.549606) 45.04%, rgba(255, 144, 64, 0) 100%), #C0621B;       
+    color: #fff;
+    padding: 8px 15px;
+}
+
+.Grey {
+    color: #777777;
+    background: #E7E7E7;
+    padding: 8px 15px;
+}
+
+.Navigator img{
+    width: 18px;
+    margin-right: 0;
+}
+.Navigator{
+    width: 18px;
+    margin-right: 0;
+    background-color: transparent;
+}
