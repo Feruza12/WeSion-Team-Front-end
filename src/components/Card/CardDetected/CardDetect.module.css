@@ -1,0 +1,22 @@
+
+
+.imgBlock{
+    display: flex;
+    align-items: center;
+    align-self: center;
+}
+.image_src{
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.car_num{
+    margin-top: 20px;
+}
+.btns button{
+    margin-left:2em ;
+}
+.btns{
+    display: flex;
+    justify-content: flex-end;
+}

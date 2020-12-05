@@ -1,0 +1,25 @@
+.Card{
+    margin-top: 1.5em;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    background-color: #F9FAFB;
+}
+
+.author_info{
+    font-size: 16px;
+    padding:  16px 1.5em;
+    color: #363636;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    margin-bottom: 14px;
+}
+.body{
+    padding: 16px 1.5em;
+}
+.side_icons{
+    width: 18px;
+    display: flex;
+    align-self: center;
+    align-items: center;
+}
