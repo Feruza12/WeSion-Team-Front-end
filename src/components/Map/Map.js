@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 
 const mapState = {
     center: [41.311081, 69.240562],
-    zoom: 9,
+    zoom: 12,
     behaviors: ["default", "scrollZoom"]
 };
 
