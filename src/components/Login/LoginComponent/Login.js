@@ -7,7 +7,6 @@ import { useHistory } from 'react-router-dom';
 import styles from './Login.module.css'
 import Grid from '@material-ui/core/Grid';
 import Button from '../../UI/Buttons/Buttons';
-import TextField from '@material-ui/core/TextField';
 
 export default function LoginComponent(props) {
   const history = useHistory();
@@ -37,14 +36,14 @@ export default function LoginComponent(props) {
               <Grid container direction="row" >
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12} >
                   <div className={styles.formcontrol}>
-                    <label className={styles.label} for="Username">Username</label>
+                    <label className={styles.label} htmlFor="Username">Username</label>
                     <Field  label="Username" name="username" className={styles.inputField + (errors.username && touched.username ? ' isInvalid' : '')}  type="text" error={errors.username && touched.username} />
                     <ErrorMessage name="username" component="div" className={styles.invalidfeedback} />
                   </div>
                 </Grid>
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                   <div className={styles.formcontrol}>
-                    <label className={styles.label} for="Password">Password</label>
+                    <label className={styles.label} htmlFor="Password">Password</label>
                     <Field  label="Password" name="password"className={styles.inputField + (errors.password && touched.password ? ' isInvalid' : '')}type="password" error={errors.password && touched.password} />
                     <ErrorMessage name="password" component="div" className={styles.invalidfeedback} />
                   </div>

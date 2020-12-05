@@ -5,8 +5,9 @@ import Appbar from './components/Appbar/Appbar';
 import MainContent from './containers/MainContent/MainContent';
 import DrawerContext from './context/drawer-context';
 
-import Logs from './containers/Logs/Logs'
-import Login from './containers/Login/Login'
+import Logs from './containers/Logs/Logs';
+import Login from './containers/Login/Login';
+import Stats from './containers/Statistics/Statistics'
 
 import styles from './App.module.css'
 
@@ -35,7 +36,7 @@ function App() {
                 <MainContent>
                   <Switch>
                     <Route exact path="/logs" component={Logs} />
-                    <Route exact path="/statistics" component={Logs} />
+                    <Route exact path="/statistics" component={Stats} />
                     <Route exact path="/database" component={Logs} />
                   </Switch>
                 </MainContent>
