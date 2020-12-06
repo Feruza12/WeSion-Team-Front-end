@@ -21,6 +21,7 @@ import data from '../../services/LogsDb.json';
 
 const dataTable = data.data;
 
+
 const StyledTableCell = withStyles((theme) => ({
     head: {
         backgroundColor: '#FD7F20',
@@ -46,30 +47,59 @@ function createData(img, violation_type, comment, author, detected_img, detected
 }
 
 const rows = [
-    // console.log(data.data);
-    // const arr = data;
-    dataTable.map((d, id) => {
-        return (
-            <React.Fragment key={id}>
-                {createData(d.img, d.violation_type, d.comment, d.author, d.detected_img, d.detected_num , d.location , d.time)}
-            </React.Fragment>
-        );
-    })
-    // createData('Cupcake', 305, 3.7, 67, 4.3),
-    // createData('Donut', 452, 25.0, 51, 4.9),
-    // createData('Eclair', 262, 16.0, 24, 6.0),
-    // createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    // createData('Gingerbread', 356, 16.0, 49, 3.9),
-    // createData('Honeycomb', 408, 3.2, 87, 6.5),
-    // createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    // createData('Jelly Bean', 375, 0.0, 94, 0.0),
-    // createData('KitKat', 518, 26.0, 65, 7.0),
-    // createData('Lollipop', 392, 0.2, 98, 0.0),
-    // createData('Marshmallow', 318, 0, 81, 2.0),
-    // createData('Nougat', 360, 19.0, 9, 37.0),
-    // createData('Oreo', 437, 18.0, 63, 4.0),
-];
 
+    createData('./fake_img/375ad.jpg',
+        'Остановка и стоянка',
+        "На левой стороне дороги остановка и стоянка разрешаются в населенных пунктах на дорогах с односторонним движением, имеющим две полосы движения, при отсутствии трамвайных путей посередине."
+        , 
+        "User",
+        "./fake_img/detected/Screenshot_1.png",
+        "01 U978 DB ",
+        "Some loc",
+        "12/20/0202 16:44"),
+    createData(
+        "./fake_img/67252b2cdd2f73e3eb7f520c2de09869.jpg",
+        "Остановка и стоянка",
+        "На левой стороне дороги остановка и стоянка разрешаются в населенных пунктах на дорогах с односторонним движением, имеющим две полосы движения, при отсутствии трамвайных путей посередине.",
+        "Vasiliy ",
+        "./fake_img/detected/Screenshot_2.png",
+        "01 T294 YA",
+        "Some loc",
+        "12/20/0202 16:44"),
+    createData(
+        "./fake_img/7510044.jpg",
+        "Остановка и стоянка",
+        "На левой стороне дороги остановка и стоянка разрешаются в населенных пунктах на дорогах с односторонним движением, имеющим две полосы движения, при отсутствии трамвайных путей посередине.",
+        "Kamola",
+        "./fake_img/detected/Screenshot_3.png",
+        " 01 A520 TA",
+        "",
+        ""),
+    createData("./fake_img/daf.jpg",
+        "Остановка и стоянка",
+        "На левой стороне дороги остановка и стоянка разрешаются в населенных пунктах на дорогах с односторонним движением, имеющим две полосы движения, при отсутствии трамвайных путей посередине.",
+        "Volunteer",
+        "./fake_img/detected/Screenshot_4.png",
+        "  01 D846 EA ",
+        "",
+        ""),
+    createData("./fake_img/f.jpg",
+        "Остановка и стоянка",
+        "На левой стороне дороги остановка и стоянка разрешаются в населенных пунктах на дорогах с односторонним движением, имеющим две полосы движения, при отсутствии трамвайных путей посередине.",
+        "Operator",
+        "./fake_img/detected/Screenshot_5.png",
+        "  10 M349 PA",
+        "",
+        ""),
+    createData("./fake_img/k.jpg",
+        "Остановка и стоянка",
+        "На левой стороне дороги остановка и стоянка разрешаются в населенных пунктах на дорогах с односторонним движением, имеющим две полосы движения, при отсутствии трамвайных путей посередине.",
+        "Ilhom",
+        "./fake_img/detected/Screenshot_6.png",
+        " 01 179 KFA",
+        "",
+        ""),
+];
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
         return -1;
@@ -252,7 +282,7 @@ export default function DataTable() {
     const [selected, setSelected] = React.useState([]);
     const [page, setPage] = React.useState(0);
     const [dense, setDense] = React.useState(false);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -263,7 +293,6 @@ export default function DataTable() {
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
             console.log(rows);
-            debugger;
             const newSelecteds = rows.map((n) => n.name);
             setSelected(newSelecteds);
             return;
@@ -352,12 +381,15 @@ export default function DataTable() {
                                                 />
                                             </TableCell> */}
                                             <StyledTableCell component="th" id={labelId} scope="row" padding="none" padding="checkbox">
-                                                {row.img}
+                                                <img src={row.img} style={{ width: '250px', height: '250px', objectFit: 'contain' }} alt="" />
                                             </StyledTableCell  >
                                             <StyledTableCell align="right">{row.violation_type}</StyledTableCell >
                                             <StyledTableCell align="right">{row.comment}</StyledTableCell >
                                             <StyledTableCell align="right">{row.author}</StyledTableCell >
-                                            <StyledTableCell align="right">{row.detected_img}</StyledTableCell >
+                                            <StyledTableCell align="right">
+                                                <img src={row.detected_img} style={{ width: '250px', height: '250px', objectFit: 'contain' }} alt="" />
+
+                                            </StyledTableCell >
                                             <StyledTableCell align="right">{row.detected_num}</StyledTableCell >
                                             <StyledTableCell align="right">{row.location}</StyledTableCell >
                                             <StyledTableCell align="right">{row.time}</StyledTableCell >

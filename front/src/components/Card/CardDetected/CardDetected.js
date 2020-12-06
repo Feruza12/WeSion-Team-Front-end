@@ -23,7 +23,7 @@ const item = {
 
 export default function CardDetected(props) {
 
-  const [name, setName] = React.useState('01 A758 DB');
+  const [name, setName] = React.useState(props.d.detected_num);
   const [data, setData] = React.useState(props.d);
 
   const handleChange = (event) => {
@@ -37,7 +37,7 @@ export default function CardDetected(props) {
       </Grid>
       <Grid item xl={7} lg={7} md={7} sm={12} xs={12}>
         <motion.h3 variants={item} className="item">  Detected Number: </motion.h3>
-        <motion.img src={detected} variants={item} className={classNames(style.image_src, "item")} alt=" Logo" />
+        <motion.img src={data.detected_img} variants={item} className={classNames(style.image_src, "item")} alt=" Logo" />
         <motion.div variants={item} className={classNames(style.car_num, "item")} >
           <FormControl variant="outlined">
             <InputLabel htmlFor="component-outlined">Car</InputLabel>

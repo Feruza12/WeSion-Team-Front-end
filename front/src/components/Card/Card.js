@@ -42,7 +42,7 @@ const item = {
 export default function Cards() {
   const [imgAccepted, setimgAccepted] = useState(false);
   const [rejected, setRejected] = useState(false);
- 
+
 
   // const postImg = () => {
   //   setBinaryImg(
@@ -58,58 +58,63 @@ export default function Cards() {
   // }
 
   const imgAcceptHandler = (id) => {
-    const accepted = data.accepted;
-    setimgAccepted(true);
-  }
+    // const accepted = data.accepted;
+    // data.filter((id == data["id"]) => {
+    //   return(
+    //    data.accepted = true
+    //   );
+  // })
+  setimgAccepted(true);
+}
 
-  const LogRejectHandler = () => {
-    setRejected(true);
-  }
-  const backToImgApprove = () => {
-    setimgAccepted(false);
-  }
+const LogRejectHandler = () => {
+  setRejected(true);
+}
+const backToImgApprove = () => {
+  setimgAccepted(false);
+}
 
 
-  return (
-    <React.Fragment>
-      {data.map((d, id) => {
-        return (
-          <motion.div key={id} className={classNames(style.Card, "container")}
-            variants={container}
-            initial="hidden"
-            animate="visible">
-            <motion.div className={classNames(style.author_info, "item")} variants={item} key={id}>
-              <div>
-                <b> Author: </b>
-                <span>{d.author}</span>
-              </div>
-              <div>
-                <b> Time: </b>
-                <span>{d.time}</span> &emsp;
-                <b> Contacts: </b>
-                <span>{d.contacts}</span>
-              </div>
-            </motion.div>
-
-            <div className={style.body}>
-              <Grid container direction="row" justify="space-between" alignItems="center" spacing={2}>
-                <div>
-                  <Button btnType="Navigator" disabled={!imgAccepted} clicked={backToImgApprove}> <img src={back} className={style.side_icons} /></Button>
-                </div>
-                {!imgAccepted ?
-                  <CardAccept imgAcceptHandler={imgAcceptHandler(d.id)} LogRejectHandler={LogRejectHandler} d={d} />
-                  : <CardDetected backToImgApprove={backToImgApprove} LogRejectHandler={LogRejectHandler} d={d} />
-                }
-                <div>
-                  <Button btnType="Navigator" disabled={imgAccepted} clicked={imgAcceptHandler}>  <img src={next} className={style.side_icons} /></Button>
-                </div>
-              </Grid>
+return (
+  <React.Fragment>
+    {data.map((d, id) => {
+      return (
+        <motion.div key={id} className={classNames(style.Card, "container")}
+          variants={container}
+          initial="hidden"
+          animate="visible">
+          <motion.div className={classNames(style.author_info, "item")} variants={item} key={id}>
+            <div>
+              <b> Author: </b>
+              <span>{d.author}</span>
             </div>
-
+            <div>
+              <b> Time: </b>
+              <span>{d.time}</span> &emsp;
+                <b> Contacts: </b>
+              <span>{d.contacts}</span>
+            </div>
           </motion.div>
-        );
-      })}
 
-    </React.Fragment>
-  );
+          <div className={style.body}>
+            <Grid container direction="row" justify="space-between" alignItems="center" spacing={2}>
+              <div>
+                <Button btnType="Navigator" disabled={!imgAccepted} clicked={backToImgApprove}> <img src={back} className={style.side_icons} /></Button>
+              </div>
+              {!imgAccepted ?
+                <CardAccept imgAcceptHandler={()=> imgAcceptHandler(id)} LogRejectHandler={LogRejectHandler} d={d} />
+                : <CardDetected backToImgApprove={backToImgApprove} LogRejectHandler={LogRejectHandler} d={d} />
+              }
+              <div>
+                <Button btnType="Navigator" disabled={imgAccepted} clicked={imgAcceptHandler}>  <img src={next} className={style.side_icons} /></Button>
+              </div>
+            </Grid>
+          </div>
+
+        </motion.div>
+      );
+    })}
+
+  </React.Fragment>
+);
 }

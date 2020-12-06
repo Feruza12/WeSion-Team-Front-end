@@ -21,7 +21,7 @@ const item = {
 };
 
 export default function Cards(props) {
-  const data = props.d
+  const data = props.d;
 
   return (
     <React.Fragment>
@@ -38,15 +38,15 @@ export default function Cards(props) {
         <motion.div variants={item} className={classNames(style.violationBlock, "item")}>
           <h3> Comment:</h3>
           <div className={style.CommentViolation}>
-            <p>    {data.comment}</p>
+            <p> {data.comment}</p>
           </div>
         </motion.div>
         <motion.div variants={item} className={classNames(style.btns, " item")}>
-          <Button btnType="Yellow" clicked={props.imgAcceptHandler(data.id) }>
-            <img src={accept} alt="icons" />              Accept
+          <Button btnType="Yellow" clicked={()=>props.imgAcceptHandler(data.id) }>
+            <img src={accept} alt="icons" /> Accept
             </Button>
           <Button btnType="Grey" clicked={props.LogRejectHandler}>
-            <img src={reject} alt="icons" />              Reject
+            <img src={reject} alt="icons" /> Reject
             </Button>
         </motion.div>
       </Grid>
