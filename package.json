@@ -15,6 +15,7 @@
     "form-data": "^3.0.0",
     "formik": "^2.2.5",
     "framer-motion": "^2.9.5",
+    "moment": "^2.29.1",
     "primeicons": "^4.1.0",
     "react": "^16.13.1",
     "react-code-blocks": "0.0.8",

@@ -7,7 +7,8 @@ import DrawerContext from './context/drawer-context';
 
 import Logs from './containers/Logs/Logs';
 import Login from './containers/Login/Login';
-import Stats from './containers/Statistics/Statistics'
+import Stats from './containers/Statistics/Statistics';
+import ViewDb from './containers/ViewDataBase/ViewDatabase';
 
 import styles from './App.module.css'
 
@@ -37,7 +38,7 @@ function App() {
                   <Switch>
                     <Route exact path="/logs" component={Logs} />
                     <Route exact path="/statistics" component={Stats} />
-                    <Route exact path="/database" component={Logs} />
+                    <Route exact path="/database" component={ViewDb} />
                   </Switch>
                 </MainContent>
               </React.Fragment>

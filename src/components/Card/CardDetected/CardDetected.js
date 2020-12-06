@@ -24,6 +24,7 @@ const item = {
 export default function CardDetected(props) {
 
   const [name, setName] = React.useState('01 A758 DB');
+  const [data, setData] = React.useState(props.d);
 
   const handleChange = (event) => {
     setName(event.target.value);

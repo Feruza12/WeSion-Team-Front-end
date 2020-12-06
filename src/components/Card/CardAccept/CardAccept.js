@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 
 import style from './CardAccept.module.css';
@@ -22,7 +22,10 @@ const item = {
 
 export default function Cards(props) {
 
- 
+  const [data, setData] = useState(props.d);
+  console.log(props.d)
+
+
   return (
     <React.Fragment>
       <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
@@ -32,28 +35,26 @@ export default function Cards(props) {
         <motion.div variants={item} className={classNames(style.violationBlock, "item")}>
           <h3> Violation type:</h3>
           <div className={style.violationType}>
-            <p>    Illegal Passing  </p>
-            <p>   passing on a curve   </p>
-            <p>   passing on a curve   </p>
-            <p>   passing on a curve   </p>
+            <p>    {data.violation_type} </p>
           </div>
         </motion.div>
         <motion.div variants={item} className={classNames(style.violationBlock, "item")}>
           <h3> Comment:</h3>
           <div className={style.CommentViolation}>
-            <p>    Illegal Passing Illegal Passing Illegal Passing Illegal Plegal Passing Illegal Passing Illegal Passing Illegal Passing Illegal Passing Illegal Passing Illegal Passing Illegal Passing Illegal Passing Illegal Passing Illegal Passing Illegal Passing Illegal Passing Illegal Passing Illegal Passing Illegal Passing  </p>
+            <p>    {data.comment}</p>
           </div>
         </motion.div>
         <motion.div variants={item} className={classNames(style.btns, " item")}>
           <Button btnType="Yellow" clicked={props.imgAcceptHandler}>
-            <img src={accept} alt="icons"/>              Accept
+            <img src={accept} alt="icons" />              Accept
             </Button>
           <Button btnType="Grey" clicked={props.LogRejectHandler}>
-            <img src={reject} alt="icons"/>              Reject
+            <img src={reject} alt="icons" />              Reject
             </Button>
         </motion.div>
       </Grid>
-
     </React.Fragment>
+
+
   );
 }

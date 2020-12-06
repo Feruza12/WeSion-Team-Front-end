@@ -7,8 +7,6 @@ export default function Logs() {
     <React.Fragment>
       <h1 className={styles.h1}>Logs</h1>
       <Card />
-      <Card />
-      <Card />
     </React.Fragment>
   );
 }
