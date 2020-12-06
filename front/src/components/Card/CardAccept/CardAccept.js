@@ -36,7 +36,7 @@ export default function Cards(props) {
           </div>
         </motion.div>
         <motion.div variants={item} className={classNames(style.violationBlock, "item")}>
-          <h3> Comment:</h3>
+          <h3> Description:</h3>
           <div className={style.CommentViolation}>
             <p> {data.comment}</p>
           </div>
