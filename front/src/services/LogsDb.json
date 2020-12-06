@@ -2,7 +2,7 @@
     "data": [
         {
             "id": "1", 
-            "img": "./fake_img/375ad.jpg",
+            "img":  "./fake_img/375ad.jpg",
             "violation_type": "Остановка и стоянка",
             "comment": "На левой стороне дороги остановка и стоянка разрешаются в населенных пунктах на дорогах с односторонним движением, имеющим две полосы движения, при отсутствии трамвайных путей посередине.",
             "author": "Vasiliy ",
@@ -10,11 +10,12 @@
             "detected_num": "U 161 QA",
             "location": "Some loc",
             "time": "12/20/0202 16:44",
-            "contacts": "@ds_l"
+            "contacts": "@ds_l",
+            "accepted": "false"
         },
         {
             "id": "2", 
-            "img": "./fake_img/375ad.jpg",
+            "img": "./fake_img/67252b2cdd2f73e3eb7f520c2de09869.jpg",
             "violation_type": "Остановка и стоянка",
             "comment": "На левой стороне дороги остановка и стоянка разрешаются в населенных пунктах на дорогах с односторонним движением, имеющим две полосы движения, при отсутствии трамвайных путей посередине.",
             "author": "Vasiliy ",
@@ -22,11 +23,12 @@
             "detected_num": "U 161 QA",
             "location": "Some loc",
             "time": "12/20/0202 16:44",
-            "contacts": "@ds_l"
+            "contacts": "@ds_l",
+            "accepted": "false"
         },
         {
             "id": "3", 
-            "img": "",
+            "img": "./fake_img/67252b2cdd2f73e3eb7f520c2de09869/7510044.jpg",
             "violation_type": "",
             "comment": "",
             "author": "",
@@ -34,7 +36,8 @@
             "detected_num": "",
             "location": "",
             "time": "",
-            "contacts": "@ds_l"
+            "contacts": "@ds_l",
+            "accepted": "false"
         }
     ]
 }

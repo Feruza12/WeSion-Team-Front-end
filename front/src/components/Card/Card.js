@@ -42,13 +42,7 @@ const item = {
 export default function Cards() {
   const [imgAccepted, setimgAccepted] = useState(false);
   const [rejected, setRejected] = useState(false);
-  const [dataSet, setData] = useState(data);
-
-  useEffect(() => {
-    setData(data);
-    console.log(dataSet)
-
-  }, [data])
+ 
 
   // const postImg = () => {
   //   setBinaryImg(
@@ -63,7 +57,8 @@ export default function Cards() {
 
   // }
 
-  const imgAcceptHandler = () => {
+  const imgAcceptHandler = (id) => {
+    const accepted = data.accepted;
     setimgAccepted(true);
   }
 
@@ -77,13 +72,12 @@ export default function Cards() {
 
   return (
     <React.Fragment>
-      {dataSet.map((d, id) => {
+      {data.map((d, id) => {
         return (
-          <motion.div className={classNames(style.Card, "container")}
+          <motion.div key={id} className={classNames(style.Card, "container")}
             variants={container}
             initial="hidden"
             animate="visible">
-
             <motion.div className={classNames(style.author_info, "item")} variants={item} key={id}>
               <div>
                 <b> Author: </b>
@@ -103,7 +97,7 @@ export default function Cards() {
                   <Button btnType="Navigator" disabled={!imgAccepted} clicked={backToImgApprove}> <img src={back} className={style.side_icons} /></Button>
                 </div>
                 {!imgAccepted ?
-                  <CardAccept imgAcceptHandler={imgAcceptHandler} LogRejectHandler={LogRejectHandler} d={d} />
+                  <CardAccept imgAcceptHandler={imgAcceptHandler(d.id)} LogRejectHandler={LogRejectHandler} d={d} />
                   : <CardDetected backToImgApprove={backToImgApprove} LogRejectHandler={LogRejectHandler} d={d} />
                 }
                 <div>

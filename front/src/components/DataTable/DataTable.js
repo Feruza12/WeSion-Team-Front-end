@@ -17,24 +17,27 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import data from '../../services/LogsDb.json';
+
+const dataTable = data.data;
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
-      backgroundColor: '#FD7F20',
-      color: theme.palette.common.white,
+        backgroundColor: '#FD7F20',
+        color: theme.palette.common.white,
     },
     body: {
-      fontSize: 14,
+        fontSize: 14,
     },
-  }))(TableCell);
-  
-  const StyledTableRow = withStyles((theme) => ({
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
     root: {
-      '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
-      },
+        '&:nth-of-type(odd)': {
+            backgroundColor: theme.palette.action.hover,
+        },
     },
-  }))(TableRow);
+}))(TableRow);
 
 function createData(img, violation_type, comment, author, detected_img, detected_num, location, time) {
     return {
@@ -43,19 +46,28 @@ function createData(img, violation_type, comment, author, detected_img, detected
 }
 
 const rows = [
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Donut', 452, 25.0, 51, 4.9),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-    createData('Honeycomb', 408, 3.2, 87, 6.5),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Jelly Bean', 375, 0.0, 94, 0.0),
-    createData('KitKat', 518, 26.0, 65, 7.0),
-    createData('Lollipop', 392, 0.2, 98, 0.0),
-    createData('Marshmallow', 318, 0, 81, 2.0),
-    createData('Nougat', 360, 19.0, 9, 37.0),
-    createData('Oreo', 437, 18.0, 63, 4.0),
+    // console.log(data.data);
+    // const arr = data;
+    dataTable.map((d, id) => {
+        return (
+            <React.Fragment key={id}>
+                {createData(d.img, d.violation_type, d.comment, d.author, d.detected_img, d.detected_num , d.location , d.time)}
+            </React.Fragment>
+        );
+    })
+    // createData('Cupcake', 305, 3.7, 67, 4.3),
+    // createData('Donut', 452, 25.0, 51, 4.9),
+    // createData('Eclair', 262, 16.0, 24, 6.0),
+    // createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+    // createData('Gingerbread', 356, 16.0, 49, 3.9),
+    // createData('Honeycomb', 408, 3.2, 87, 6.5),
+    // createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+    // createData('Jelly Bean', 375, 0.0, 94, 0.0),
+    // createData('KitKat', 518, 26.0, 65, 7.0),
+    // createData('Lollipop', 392, 0.2, 98, 0.0),
+    // createData('Marshmallow', 318, 0, 81, 2.0),
+    // createData('Nougat', 360, 19.0, 9, 37.0),
+    // createData('Oreo', 437, 18.0, 63, 4.0),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -250,6 +262,8 @@ export default function DataTable() {
 
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
+            console.log(rows);
+            debugger;
             const newSelecteds = rows.map((n) => n.name);
             setSelected(newSelecteds);
             return;
@@ -322,7 +336,7 @@ export default function DataTable() {
                                     const labelId = `enhanced-table-checkbox-${index}`;
 
                                     return (
-                                        <StyledTableRow 
+                                        <StyledTableRow
                                             hover
                                             onClick={(event) => handleClick(event, row.name)}
                                             role="checkbox"
@@ -337,16 +351,16 @@ export default function DataTable() {
                                                     inputProps={{ 'aria-labelledby': labelId }}
                                                 />
                                             </TableCell> */}
-                                            <StyledTableCell   component="th" id={labelId} scope="row" padding="none" padding="checkbox">
+                                            <StyledTableCell component="th" id={labelId} scope="row" padding="none" padding="checkbox">
                                                 {row.img}
                                             </StyledTableCell  >
-                                            <StyledTableCell  align="right">{row.violation_type}</StyledTableCell >
-                                            <StyledTableCell  align="right">{row.comment}</StyledTableCell >
-                                            <StyledTableCell  align="right">{row.author}</StyledTableCell >
-                                            <StyledTableCell  align="right">{row.detected_img}</StyledTableCell >
-                                            <StyledTableCell  align="right">{row.detected_num}</StyledTableCell >
-                                            <StyledTableCell  align="right">{row.location}</StyledTableCell >
-                                            <StyledTableCell  align="right">{row.time}</StyledTableCell >
+                                            <StyledTableCell align="right">{row.violation_type}</StyledTableCell >
+                                            <StyledTableCell align="right">{row.comment}</StyledTableCell >
+                                            <StyledTableCell align="right">{row.author}</StyledTableCell >
+                                            <StyledTableCell align="right">{row.detected_img}</StyledTableCell >
+                                            <StyledTableCell align="right">{row.detected_num}</StyledTableCell >
+                                            <StyledTableCell align="right">{row.location}</StyledTableCell >
+                                            <StyledTableCell align="right">{row.time}</StyledTableCell >
                                         </StyledTableRow >
                                     );
                                 })}

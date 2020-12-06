@@ -33,7 +33,7 @@ export default function CardDetected(props) {
   return (
     <React.Fragment>
       <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
-        <motion.img variants={item} src={test} className={classNames(style.image_src, "item")} alt=" Logo" />
+        <motion.img variants={item} src={data.img} className={classNames(style.image_src, "item")} alt=" Logo" />
       </Grid>
       <Grid item xl={7} lg={7} md={7} sm={12} xs={12}>
         <motion.h3 variants={item} className="item">  Detected Number: </motion.h3>

@@ -21,15 +21,12 @@ const item = {
 };
 
 export default function Cards(props) {
-
-  const [data, setData] = useState(props.d);
-  console.log(props.d)
-
+  const data = props.d
 
   return (
     <React.Fragment>
       <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
-        <motion.img variants={item} src={test} className={classNames(style.image_src, "item")} alt="ChitChat Logo" />
+        <motion.img variants={item} src={data.img} className={classNames(style.image_src, "item")} alt="ChitChat Logo" />
       </Grid>
       <Grid item xl={7} lg={7} md={7} sm={12} xs={12}>
         <motion.div variants={item} className={classNames(style.violationBlock, "item")}>
@@ -45,7 +42,7 @@ export default function Cards(props) {
           </div>
         </motion.div>
         <motion.div variants={item} className={classNames(style.btns, " item")}>
-          <Button btnType="Yellow" clicked={props.imgAcceptHandler}>
+          <Button btnType="Yellow" clicked={props.imgAcceptHandler(data.id) }>
             <img src={accept} alt="icons" />              Accept
             </Button>
           <Button btnType="Grey" clicked={props.LogRejectHandler}>
